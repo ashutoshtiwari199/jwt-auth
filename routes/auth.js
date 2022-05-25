@@ -100,7 +100,7 @@ router.post('/signin', [
       // const token= 
       // create token
       const {_id, name, email, role} = user;
-      const token= sign({_id}, process.env.ACCESS_TOKEN_SECRET,{expiresIn: "2d"})
+      const token= sign({_id}, process.env.ACCESS_TOKEN_SECRET,{expiresIn: "60s"})
       res.cookie('token', token, {expire: new Date()+99 }) 
       res.json({token, user:{_id,name, email, role}})
     })
